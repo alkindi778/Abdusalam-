@@ -1,0 +1,117 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap');
+
+/* RTL Support */
+[dir="rtl"] {
+    text-align: right;
+}
+
+/* Government Colors */
+:root {
+    --gov-blue: #002b5c;
+    --gov-light-blue: #1e40af;
+    --gov-gray: #f8fafc;
+}
+
+/* Custom Components */
+@layer components {
+    .gov-button {
+        @apply bg-gov-blue text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+    }
+    
+    .gov-button-outline {
+        @apply border-2 border-gov-blue text-gov-blue px-6 py-3 rounded-lg font-semibold hover:bg-gov-blue hover:text-white transition-all duration-300;
+    }
+    
+    .gov-card {
+        @apply bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100;
+    }
+    
+    .nav-link {
+        @apply text-gray-700 hover:text-gov-blue font-medium px-4 py-2 rounded-lg transition-all duration-300 relative;
+    }
+    
+    .nav-link.active {
+        @apply text-gov-blue bg-blue-50 font-semibold;
+    }
+    
+    .nav-link:hover {
+        @apply bg-gray-50;
+    }
+    
+    .mobile-nav-link {
+        @apply block px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-gov-blue transition-colors border-b border-gray-100;
+    }
+    
+    .section-title {
+        @apply text-3xl font-bold text-gray-900 mb-8 text-center;
+    }
+    
+    .service-card {
+        @apply bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-6 border-r-4 border-gov-blue;
+    }
+    
+    .feature-icon {
+        @apply w-12 h-12 bg-gov-blue text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4;
+    }
+}
+
+/* News Ticker Animation */
+@keyframes scroll-right {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.news-ticker {
+    animation: scroll-right 30s linear infinite;
+}
+
+/* Custom Utilities */
+@layer utilities {
+    .bg-gov-blue {
+        background-color: var(--gov-blue);
+    }
+    
+    .text-gov-blue {
+        color: var(--gov-blue);
+    }
+    
+    .border-gov-blue {
+        border-color: var(--gov-blue);
+    }
+    
+    .gradient-bg {
+        background: linear-gradient(135deg, var(--gov-blue) 0%, #1e40af 100%);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-title {
+        @apply text-2xl;
+    }
+}
+
+/* Arabic Font Enhancement */
+body {
+    font-family: 'Tajawal', 'Cairo', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+}
